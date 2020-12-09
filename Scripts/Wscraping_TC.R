@@ -7,8 +7,8 @@ library(tidyverse)
 
 
 #CREAREMOS LA BASE DE DATOS DE LEYES INCONSTITUCIONALES
-base<-data.frame("LEY DEMANDADA")
-base
+base_leyes<-data.frame("LEY DEMANDADA")
+base_leyes
 
 for (i in 1:15){
   UrlMadre<-paste0("http://181.177.234.7/buscarRes/public/resolucionjur?filtro=A&search=Inconstitucional%2C+Ley&demandante=&demandado=ley&numexpediente=&anoingreso=&idtipoproceso=0&anopublica=&pg=",i)
@@ -20,7 +20,7 @@ for (i in 1:15){
   for (i in 1:20) {
     if (i %% 2== 0){    #Condición par (demandado: Leyes)
       demandado<-pag_text[i]
-      base[ nrow(base) + 1,] <- demandado     #appendeamos
+      base_leyes[ nrow(base_leyes) + 1,] <- demandado     #appendeamos
       
     }}
     
